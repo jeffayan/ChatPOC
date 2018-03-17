@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  ChatPOC
@@ -84,20 +85,12 @@ extension SingleChatController {
         self.viewCamera.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.cameraOnclick)))
     
 
-        FirebaseHelper.shared.observe(user: 10) { (value) in
+        FirebaseHelper.shared.observe(user: 10, with: .value) { (value) in
             
             self.datasource = value
             DispatchQueue.main.async {
                 self.reload()
             }
-            
-//            for val in value {
-//
-//                print("\n -- ", val.key, val.read, val.reciever,val.sender, val.text, val.timeStamp, val.type, val.url )
-//
-//            }
-            
-            
             
         }
         
@@ -332,6 +325,7 @@ extension SingleChatController : UITextViewDelegate {
         if textView.text == .Empty {
             textView.text = Constants.string.writeSomething
             textView.textColor = .lightGray
+            isSendShown = false
         }
         
     }
@@ -356,6 +350,7 @@ extension SingleChatController : UITextViewDelegate {
         }
         
     }
+    
     
 }
 

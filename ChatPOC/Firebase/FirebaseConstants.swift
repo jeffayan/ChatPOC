@@ -26,6 +26,19 @@ struct FirebaseConstants {
     
 }
 
+// Message Status
+
+enum MessageStatus : Int {
+    
+    case sent = 0
+    case recieved = 2
+    case read = 1
+    
+}
+
+
+
+// Mime Type For Attachments
 
 enum Mime : String {
     

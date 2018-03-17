@@ -36,7 +36,16 @@ class ChatCell: UITableViewCell {
     
     
     func setRecieved(values : ChatResponse){
-        FirebaseHelper.shared
+       
+        guard let entity = values.response , let key = values.key, let sender = entity.sender else {
+            return
+        }
+       
+        if entity.read == MessageStatus.sent.rawValue {
+            entity.read = MessageStatus.read.rawValue
+            FirebaseHelper.shared.update(chat: entity, key: key, toUser: sender)
+        }
+        
         self.set(values: values.response, isRecieved: true)
         
     }

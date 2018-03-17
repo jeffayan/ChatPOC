@@ -33,6 +33,7 @@
 		087BF504204ED79F0060F967 /* ChatEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087BF503204ED79F0060F967 /* ChatEntity.swift */; };
 		087BF506204ED9280060F967 /* JsonSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087BF505204ED9280060F967 /* JsonSerializing.swift */; };
 		08C4A37F2051195D00A56604 /* FirebaseHelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C4A37E2051195D00A56604 /* FirebaseHelperExtension.swift */; };
+		08F6F87F205D2B92008324E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F6F87E205D2B92008324E5 /* GoogleService-Info.plist */; };
 		FECFB1E9A3CBCBD698D83DF3 /* Pods_ChatPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2842787108D349BD96C6C526 /* Pods_ChatPOC.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		087BF503204ED79F0060F967 /* ChatEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEntity.swift; sourceTree = "<group>"; };
 		087BF505204ED9280060F967 /* JsonSerializing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializing.swift; sourceTree = "<group>"; };
 		08C4A37E2051195D00A56604 /* FirebaseHelperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelperExtension.swift; sourceTree = "<group>"; };
+		08F6F87E205D2B92008324E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2842787108D349BD96C6C526 /* Pods_ChatPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F983ADDE5F64D73BB4781B2 /* Pods-ChatPOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatPOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatPOC/Pods-ChatPOC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 		087BF4F7204EA7C70060F967 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				08F6F87E205D2B92008324E5 /* GoogleService-Info.plist */,
 				087BF4F9204EA8220060F967 /* FirebaseHelper.swift */,
 				087BF501204ECA120060F967 /* FirebaseConstants.swift */,
 				087BF503204ED79F0060F967 /* ChatEntity.swift */,
@@ -235,6 +238,7 @@
 				087BF4F4204EA3E00060F967 /* ChatReciever.xib in Resources */,
 				082E6203204D4DC500B219BA /* Assets.xcassets in Resources */,
 				082E6201204D4DC500B219BA /* Main.storyboard in Resources */,
+				08F6F87F205D2B92008324E5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +481,7 @@
 				INFOPLIST_FILE = ChatPOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Appoets.ChatPOCcc;
+				PRODUCT_BUNDLE_IDENTIFIER = Appoets.ChatPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -494,7 +498,7 @@
 				INFOPLIST_FILE = ChatPOC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Appoets.ChatPOCcc;
+				PRODUCT_BUNDLE_IDENTIFIER = Appoets.ChatPOC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

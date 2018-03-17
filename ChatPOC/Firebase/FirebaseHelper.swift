@@ -13,6 +13,7 @@ import FirebaseStorage
 
 typealias UploadTask = StorageUploadTask
 typealias SnapShot = DataSnapshot
+typealias EventType = DataEventType
 
 class FirebaseHelper{
     
@@ -75,9 +76,9 @@ class FirebaseHelper{
     
     // Update Message in Specific Path
     
-    func update(message : String, key : String){
+    func update(chat: ChatEntity, key : String, toUser user : Int){
        
-        
+        self.update(chat: chat, key: key, inRoom: getRoom(forUser: user))
         
     }
     
@@ -128,12 +129,9 @@ extension FirebaseHelper {
 
     // Update Values in specific path
     
-    private func update(chat : ChatEntity?, key : String?){
-        
-        guard let key = key, 
-        
-        
-       // self.ref?.child(FirebaseConstants.main.dbBase).child(self.getRoom(forUser: userId)).updateChildValues(<#T##values: [AnyHashable : Any]##[AnyHashable : Any]#>)
+    private func update(chat : ChatEntity, key : String, inRoom room : String){
+       
+        self.ref?.child(FirebaseConstants.main.dbBase).child(room).child(key).updateChildValues(chat.JSONRepresentation)
         
     }
     
@@ -146,8 +144,8 @@ extension FirebaseHelper {
         let chat = ChatEntity()
     
         chat.read = 0
-        chat.reciever = currentUserId
-        chat.sender = 10
+        chat.reciever = userId
+        chat.sender = currentUserId
         
     
         chat.timeStamp = Formatter.shared.removeDecimal(from: Date().timeIntervalSince1970)
@@ -230,11 +228,11 @@ extension FirebaseHelper {
     
     // Observe if any value changes
     
-    func observe(user id : Int, value : @escaping ([ChatResponse])->()) {
+    func observe(user id : Int, with : EventType, value : @escaping ([ChatResponse])->()) {
         
         self.initializeDB()
         
-        self.ref?.child(FirebaseConstants.main.dbBase).child(getRoom(forUser: id)).queryLimited(toLast: 100).observe(.value, with: { (snapShot) in
+        self.ref?.child(FirebaseConstants.main.dbBase).child(getRoom(forUser: id)).queryOrdered(byChild: "timeStamp").observe(with, with: { (snapShot) in
             
             value(self.getModal(from: snapShot))
             
@@ -253,6 +251,21 @@ extension FirebaseHelper {
         
         if let snaps = snapShot.valueInExportFormat() as? [String : NSDictionary] {
             
+//            
+//            do {
+//                
+//               let data = try JSONSerialization.data(withJSONObject: snaps, options: .prettyPrinted)
+//               let obj = try JSONDecoder().decode(Response.self, from: data)
+//               
+//               print(obj)
+//                
+//            } catch let err {
+//                
+//                print(err.localizedDescription)
+//            }
+//            
+//            
+         
            for snap in snaps {
             
                  response = ChatResponse()
@@ -260,7 +273,6 @@ extension FirebaseHelper {
             
                  response?.key = snap.key
             
-        
                  chat?.read = snap.value.value(forKey: FirebaseConstants.main.read) as? Int
                  chat?.reciever = snap.value.value(forKey: FirebaseConstants.main.reciever) as? Int
                  chat?.sender = snap.value.value(forKey: FirebaseConstants.main.sender) as? Int
@@ -269,6 +281,7 @@ extension FirebaseHelper {
                  chat?.type = snap.value.value(forKey: FirebaseConstants.main.type) as? String
                  chat?.url = snap.value.value(forKey: FirebaseConstants.main.type) as? String
             
+                 response?.response = chat
                  chatArray.append(response!)
                 
             }
