@@ -23,6 +23,7 @@ struct FirebaseConstants {
     let read = "read"
     let type = "type"
     let text = "text"
+    let url = "url"
     
 }
 

@@ -32,6 +32,9 @@
 		087BF502204ECA120060F967 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087BF501204ECA120060F967 /* FirebaseConstants.swift */; };
 		087BF504204ED79F0060F967 /* ChatEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087BF503204ED79F0060F967 /* ChatEntity.swift */; };
 		087BF506204ED9280060F967 /* JsonSerializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087BF505204ED9280060F967 /* JsonSerializing.swift */; };
+		0894B96B205FA2740012F5F3 /* ImageCellSender.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0894B96A205FA2740012F5F3 /* ImageCellSender.xib */; };
+		0894B96D205FA28A0012F5F3 /* ImageCellReciever.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0894B96C205FA28A0012F5F3 /* ImageCellReciever.xib */; };
+		0894B96F205FA45C0012F5F3 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0894B96E205FA45C0012F5F3 /* Cache.swift */; };
 		08C4A37F2051195D00A56604 /* FirebaseHelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C4A37E2051195D00A56604 /* FirebaseHelperExtension.swift */; };
 		08F6F87F205D2B92008324E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08F6F87E205D2B92008324E5 /* GoogleService-Info.plist */; };
 		FECFB1E9A3CBCBD698D83DF3 /* Pods_ChatPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2842787108D349BD96C6C526 /* Pods_ChatPOC.framework */; };
@@ -66,6 +69,9 @@
 		087BF501204ECA120060F967 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		087BF503204ED79F0060F967 /* ChatEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEntity.swift; sourceTree = "<group>"; };
 		087BF505204ED9280060F967 /* JsonSerializing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializing.swift; sourceTree = "<group>"; };
+		0894B96A205FA2740012F5F3 /* ImageCellSender.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCellSender.xib; sourceTree = "<group>"; };
+		0894B96C205FA28A0012F5F3 /* ImageCellReciever.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCellReciever.xib; sourceTree = "<group>"; };
+		0894B96E205FA45C0012F5F3 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		08C4A37E2051195D00A56604 /* FirebaseHelperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelperExtension.swift; sourceTree = "<group>"; };
 		08F6F87E205D2B92008324E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2842787108D349BD96C6C526 /* Pods_ChatPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,9 +118,7 @@
 				082E6202204D4DC500B219BA /* Assets.xcassets */,
 				082E6204204D4DC500B219BA /* LaunchScreen.storyboard */,
 				082E6207204D4DC500B219BA /* Info.plist */,
-				087BF4ED204E6A480060F967 /* ChatCell.swift */,
-				087BF4EE204E6A480060F967 /* ChatSender.xib */,
-				087BF4F3204EA3E00060F967 /* ChatReciever.xib */,
+				0894B969205FA2310012F5F3 /* Chat Cell */,
 			);
 			path = ChatPOC;
 			sourceTree = "<group>";
@@ -135,6 +139,7 @@
 		087BF4F8204EA7DF0060F967 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
+				0894B96E205FA45C0012F5F3 /* Cache.swift */,
 				082BDE9B2052721900BC7D1B /* Formatter.swift */,
 				0802911020502BC400638378 /* Image.swift */,
 				0802910E20500E6300638378 /* SelectImageView.swift */,
@@ -151,6 +156,18 @@
 				087BF4FD204EAED60060F967 /* LayoutConstraint.swift */,
 			);
 			path = Extras;
+			sourceTree = "<group>";
+		};
+		0894B969205FA2310012F5F3 /* Chat Cell */ = {
+			isa = PBXGroup;
+			children = (
+				087BF4ED204E6A480060F967 /* ChatCell.swift */,
+				087BF4EE204E6A480060F967 /* ChatSender.xib */,
+				087BF4F3204EA3E00060F967 /* ChatReciever.xib */,
+				0894B96A205FA2740012F5F3 /* ImageCellSender.xib */,
+				0894B96C205FA28A0012F5F3 /* ImageCellReciever.xib */,
+			);
+			path = "Chat Cell";
 			sourceTree = "<group>";
 		};
 		388B8D553FDA1F2895FD1CE9 /* Pods */ = {
@@ -232,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0894B96B205FA2740012F5F3 /* ImageCellSender.xib in Resources */,
 				082E6206204D4DC500B219BA /* LaunchScreen.storyboard in Resources */,
 				087BF4F0204E6A490060F967 /* ChatSender.xib in Resources */,
 				087BF4FC204EA94B0060F967 /* GoogleService-Info.plist in Resources */,
@@ -239,6 +257,7 @@
 				082E6203204D4DC500B219BA /* Assets.xcassets in Resources */,
 				082E6201204D4DC500B219BA /* Main.storyboard in Resources */,
 				08F6F87F205D2B92008324E5 /* GoogleService-Info.plist in Resources */,
+				0894B96D205FA28A0012F5F3 /* ImageCellReciever.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +345,7 @@
 				0802910F20500E6300638378 /* SelectImageView.swift in Sources */,
 				082E6216204D7C7100B219BA /* Constants.swift in Sources */,
 				087BF502204ECA120060F967 /* FirebaseConstants.swift in Sources */,
+				0894B96F205FA45C0012F5F3 /* Cache.swift in Sources */,
 				087BF4EF204E6A480060F967 /* ChatCell.swift in Sources */,
 				087BF506204ED9280060F967 /* JsonSerializing.swift in Sources */,
 				082E61FC204D4DC500B219BA /* AppDelegate.swift in Sources */,

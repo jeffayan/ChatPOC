@@ -263,8 +263,7 @@ extension FirebaseHelper {
 //                
 //                print(err.localizedDescription)
 //            }
-//            
-//            
+           
          
            for snap in snaps {
             
@@ -279,7 +278,7 @@ extension FirebaseHelper {
                  chat?.text = snap.value.value(forKey: FirebaseConstants.main.text) as? String
                  chat?.timeStamp = snap.value.value(forKey: FirebaseConstants.main.timeStamp) as? Int
                  chat?.type = snap.value.value(forKey: FirebaseConstants.main.type) as? String
-                 chat?.url = snap.value.value(forKey: FirebaseConstants.main.type) as? String
+                 chat?.url = snap.value.value(forKey: FirebaseConstants.main.url) as? String
             
                  response?.response = chat
                  chatArray.append(response!)

@@ -106,7 +106,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="3z1-4Z-CbR"/>
             <connections>
-                <outlet property="labelCell" destination="DLm-fQ-4xL" id="Y2M-sc-xze"/>
+                <outlet property="imageViewStatus" destination="auY-xS-KzI" id="zKT-Ri-FJd"/>
+                <outlet property="labelCell" destination="DLm-fQ-4xL" id="u9U-fd-xZG"/>
+                <outlet property="labelTime" destination="mJy-hr-5X5" id="UE5-SA-R3N"/>
                 <outlet property="viewCell" destination="ha9-b9-chN" id="LWv-fJ-mND"/>
             </connections>
             <point key="canvasLocation" x="-110" y="55"/>

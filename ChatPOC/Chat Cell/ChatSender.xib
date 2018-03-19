@@ -29,7 +29,7 @@
                         <rect key="frame" x="8" y="8" width="357" height="95.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sent" translatesAutoresizingMaskIntoConstraints="NO" id="PUK-Hb-an2">
-                                <rect key="frame" x="345" y="71.5" width="12" height="24"/>
+                                <rect key="frame" x="341" y="71.5" width="12" height="24"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12" id="DJu-Bz-dpq"/>
@@ -37,7 +37,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vnx-8j-7Ys">
-                                <rect key="frame" x="0.0" y="71.5" width="337" height="24"/>
+                                <rect key="frame" x="0.0" y="71.5" width="333" height="24"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
                                 <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,7 +82,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="PUK-Hb-an2" secondAttribute="trailing" id="2Gc-Wm-KVD"/>
+                            <constraint firstItem="FPl-ej-B1H" firstAttribute="trailing" secondItem="PUK-Hb-an2" secondAttribute="trailing" id="2Gc-Wm-KVD"/>
                             <constraint firstAttribute="trailing" secondItem="FPl-ej-B1H" secondAttribute="trailing" constant="4" id="5tE-s6-Tur"/>
                             <constraint firstItem="Vnx-8j-7Ys" firstAttribute="centerY" secondItem="PUK-Hb-an2" secondAttribute="centerY" id="A8B-8F-lj8"/>
                             <constraint firstAttribute="bottom" secondItem="PUK-Hb-an2" secondAttribute="bottom" id="AHn-EU-KFb"/>
@@ -106,7 +106,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="labelCell" destination="wSt-SE-oUX" id="23O-oA-NvY"/>
+                <outlet property="imageViewStatus" destination="PUK-Hb-an2" id="Oe3-U7-qgQ"/>
+                <outlet property="labelCell" destination="wSt-SE-oUX" id="dUZ-Xq-7DG"/>
+                <outlet property="labelTime" destination="Vnx-8j-7Ys" id="Irt-C1-KQt"/>
                 <outlet property="viewCell" destination="FPl-ej-B1H" id="blO-74-096"/>
             </connections>
             <point key="canvasLocation" x="-145.5" y="-125"/>

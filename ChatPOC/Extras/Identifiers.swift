@@ -49,6 +49,9 @@ struct XIB {
    let StatusTableViewCell = "StatusTableViewCell"
    let ChatSender = "ChatSender"
    let ChatReciever = "ChatReciever"
+   let ImageCellSender = "ImageCellSender"
+   let ImageCellReciever = "ImageCellReciever"
+    
 }
 
 

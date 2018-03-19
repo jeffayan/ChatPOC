@@ -22,8 +22,11 @@ class SingleChatController: UIViewController {
     @IBOutlet private weak var viewSend : UIView!
     
     
-    private let senderCellId = "sender"
-    private let recieverCellId = "reciever"
+    private let senderCellTextId = "sender"
+    private let recieverCellTextId = "reciever"
+    private let senderMediaId = "senderMedia"
+    private let reciverMediaId = "reciverMedia"
+
     
     private var datasource = [ChatResponse]()
     
@@ -75,11 +78,11 @@ extension SingleChatController {
         
         self.addKeyBoardObserver(with: bottomConstraint)
         
-        self.tableView.register(UINib(nibName: XIB.Names.ChatSender, bundle: .main), forCellReuseIdentifier: senderCellId)
-        self.tableView.register(UINib(nibName: XIB.Names.ChatReciever, bundle: .main), forCellReuseIdentifier: recieverCellId)
-       // self.setEmptyView()
-        
-       
+        self.tableView.register(UINib(nibName: XIB.Names.ChatSender, bundle: .main), forCellReuseIdentifier: senderCellTextId)
+        self.tableView.register(UINib(nibName: XIB.Names.ChatReciever, bundle: .main), forCellReuseIdentifier: recieverCellTextId)
+        self.tableView.register(UINib(nibName: XIB.Names.ImageCellSender, bundle: .main), forCellReuseIdentifier: senderMediaId)
+        self.tableView.register(UINib(nibName: XIB.Names.ImageCellReciever, bundle: .main), forCellReuseIdentifier: reciverMediaId)
+    
         self.viewSend.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.sendOnclick)))
         self.viewRecord.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.recordOnclick)))
         self.viewCamera.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.cameraOnclick)))
@@ -155,7 +158,7 @@ extension SingleChatController {
           
             if let image = images.first, let imageData = image.resizeImage(newWidth: 200), let data = UIImagePNGRepresentation(imageData){
                 
-                let task = FirebaseHelper.shared.write(to: 2, with: data, mime: .image, completion: { (isCompleted) in
+                let task = FirebaseHelper.shared.write(to: 10, with: data, mime: .image, completion: { (isCompleted) in
                     
                     print("isCompleted  -- ",isCompleted)
                     
@@ -163,14 +166,9 @@ extension SingleChatController {
                 
                 task.observe(.progress, handler: { (snapShot) in
                     
+                    
                   
                         print("Progress  ",(snapShot.progress!.completedUnitCount/snapShot.progress!.totalUnitCount) * 100)
-                    
-                    if #available(iOS 11.0, *) {
-                        print(" Remaining ", snapShot.progress?.estimatedTimeRemaining)
-                    } else {
-                        // Fallback on earlier versions
-                    }
                     
                 })
                 
@@ -252,10 +250,9 @@ extension SingleChatController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 //        if indexPath.row % 2 == 0 {
-        
-        
-        if let chat = datasource[indexPath.row].response, let tableCell = tableView.dequeueReusableCell(withIdentifier: chat.sender == currentUserId ? senderCellId : recieverCellId, for: indexPath) as? ChatCell {
-            
+   
+        if let chat = datasource[indexPath.row].response, let tableCell = tableView.dequeueReusableCell(withIdentifier: getCellId(from: chat), for: indexPath) as? ChatCell {
+                        
             if chat.sender == currentUserId {
                 
                 tableCell.setSender(values: datasource[indexPath.row])
@@ -266,9 +263,7 @@ extension SingleChatController : UITableViewDataSource, UITableViewDelegate {
                 
             }
             
-            
             return tableCell
-            
         }
         
         
@@ -304,6 +299,22 @@ extension SingleChatController : UITableViewDataSource, UITableViewDelegate {
         
         return UITableViewAutomaticDimension
     }
+    
+    
+    private func getCellId(from entity : ChatEntity)->String {
+        
+        if entity.sender == currentUserId {
+            
+            return entity.type == Mime.text.rawValue ? senderCellTextId : senderMediaId
+            
+        } else {
+            
+            return entity.type == Mime.text.rawValue ? recieverCellTextId : senderCellTextId
+
+        }
+        
+    }
+    
     
 }
 
